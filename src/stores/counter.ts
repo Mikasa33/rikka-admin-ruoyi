@@ -1,12 +1,29 @@
-import { computed, ref } from 'vue'
-import { defineStore } from 'pinia'
+export const useUserStore = defineStore('user', () => {
+  /**
+   * Current name of the user.
+   */
+  const savedName = ref('')
+  const previousNames = ref(new Set<string>())
 
-export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
+  const usedNames = computed(() => Array.from(previousNames.value))
+  const otherNames = computed(() => usedNames.value.filter(name => name !== savedName.value))
+
+  /**
+   * Changes the current name of the user and saves the one that was used
+   * before.
+   *
+   * @param name - new name to set
+   */
+  function setNewName(name: string) {
+    if (savedName.value)
+      previousNames.value.add(savedName.value)
+
+    savedName.value = name
   }
 
-  return { count, doubleCount, increment }
+  return {
+    setNewName,
+    otherNames,
+    savedName,
+  }
 })
