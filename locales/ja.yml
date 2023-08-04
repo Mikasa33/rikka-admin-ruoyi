@@ -9,5 +9,6 @@ intro:
   desc: Vite スターターテンプレート
   dynamic-route: 動的ルートのデモ
   hi: こんにちは、{name}!
+  aka: エイリアス
   whats-your-name: 君の名は。
 not-found: 見つかりませんでした
