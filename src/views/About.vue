@@ -3,8 +3,6 @@ defineOptions({
   name: '404',
 })
 
-const { t } = useI18n()
-
 const result = ref()
 
 fetch('/api/demo?query=demo')
