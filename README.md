@@ -39,6 +39,8 @@
 
 - 📥 [API 自动加载](https://github.com/antfu/unplugin-auto-import) - 直接使用 Composition API 无需引入
 
+- 🔢 [Mock 模拟数据](https://github.com/vbenjs/vite-plugin-mock) - 生成随机数据，拦截 Ajax 请求
+
 - 🦾 [TypeScript](https://www.typescriptlang.org) - 强类型编程
 
 <br>
@@ -67,6 +69,7 @@
   - [`unplugin-vue-i18n`](https://github.com/intlify/bundle-tools/tree/main/packages/unplugin-vue-i18n) - Vue I18n 的 Vite 插件
 - [VueUse](https://github.com/antfu/vueuse) - 实用的 Composition API 工具合集
 - [`vite-plugin-vue-devtools`](https://github.com/webfansplz/vite-plugin-vue-devtools) - 旨在增强 Vue 开发者体验的 Vite 插件
+- [`vite-plugin-mock`](https://github.com/vbenjs/vite-plugin-mock) - 模拟 Ajax 请求，生成随机数据，增加单元测试的真实性
 
 ### 编码风格
 
