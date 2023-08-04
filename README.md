@@ -144,3 +144,15 @@ pnpm build
 ```
 
 然后你会看到用于发布的 `dist` 文件夹被生成。
+
+## 开源作者
+
+[@Mikasa33](https://github.com/Mikasa33)
+
+## 捐赠
+
+如果你觉得这个项目对你有帮助，可以请 Mikasa33 喝杯饮料表示支持，Mikasa33 开源的动力离不开各位的支持和鼓励。
+
+| 微信 | 支付宝 |
+| ----------- | ----------- |
+|<img width="200" alt="logo" src="https://github.com/Mikasa33/cool-admin-naive/assets/29498153/55e5cf1a-e59c-4ac2-a330-2264f1d25005">|<img width="200" alt="logo" src="https://github.com/Mikasa33/cool-admin-naive/assets/29498153/6bb2470b-3514-4710-87a0-8f6aa012437a">|
