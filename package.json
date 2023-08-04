@@ -29,7 +29,6 @@
     "@tsconfig/node18": "^18.2.0",
     "@types/node": "^18.17.0",
     "@types/nprogress": "^0.2.0",
-    "@types/vue-i18n": "^7.0.0",
     "@unocss/preset-attributify": "^0.54.1",
     "@unocss/preset-icons": "^0.54.1",
     "@unocss/preset-typography": "^0.54.1",
