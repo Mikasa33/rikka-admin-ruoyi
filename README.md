@@ -1,5 +1,5 @@
 <p align='center'>
-  <img src='https://user-images.githubusercontent.com/11247099/154486817-f86b8f20-5463-4122-b6e9-930622e757f2.png' alt='void-template-vue - Vite Starter Template' width='600'/>
+  <img src='https://user-images.githubusercontent.com/11247099/154486817-f86b8f20-5463-4122-b6e9-930622e757f2.png' alt='void-vue - Vite Starter Template' width='600'/>
 </p>
 
 <p align='center'>
@@ -10,7 +10,7 @@
 <br>
 
 <p align='center'>
-<a href="https://vitesse.netlify.app/">在线 Demo</a>
+<a href="https://void-vue.mikasa.cc/">在线 Demo</a>
 </p>
 
 <br>
@@ -102,12 +102,12 @@
 
 ### GitHub 模板
 
-[使用这个模板创建仓库](https://github.com/Mikasa33/void-template-vue/generate).
+[使用这个模板创建仓库](https://github.com/Mikasa33/void-vue/generate).
 
 ### 克隆到本地
 
 ```bash
-git clone https://github.com/Mikasa33/void-template-vue my-void-app
+git clone https://github.com/Mikasa33/void-vue my-void-app
 cd my-void-app
 pnpm i # 如果你没装过 pnpm, 可以先运行: npm install -g pnpm
 ```

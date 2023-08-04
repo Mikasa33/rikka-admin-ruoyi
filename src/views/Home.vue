@@ -23,10 +23,10 @@ const { t } = useI18n()
     <p>
       <a
         rel="noreferrer"
-        href="https://github.com/Mikasa33/void-template-vue"
+        href="https://github.com/Mikasa33/void-vue"
         target="_blank"
       >
-        void-template-vue
+        void-vue
       </a>
     </p>
     <p>

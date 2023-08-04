@@ -54,7 +54,7 @@ function onClick() {
     <a
       class="inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600"
       rel="noreferrer"
-      href="https://github.com/Mikasa33/void-template-vue"
+      href="https://github.com/Mikasa33/void-vue"
       target="_blank"
       title="GitHub"
     >
