@@ -6,6 +6,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import UnoCSS from 'unocss/vite'
@@ -28,6 +29,14 @@ export default defineConfig({
         '@vueuse/core',
         '@vueuse/head',
         'pinia',
+        {
+          'naive-ui': [
+            'useDialog',
+            'useMessage',
+            'useNotification',
+            'useLoadingBar',
+          ],
+        },
       ],
       dts: 'types/auto-imports.d.ts',
       dirs: [
@@ -42,6 +51,7 @@ export default defineConfig({
       extensions: ['vue', 'md'],
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       dts: 'types/components.d.ts',
+      resolvers: [NaiveUiResolver()],
     }),
 
     // https://github.com/intlify/bundle-tools/tree/main/packages/unplugin-vue-i18n

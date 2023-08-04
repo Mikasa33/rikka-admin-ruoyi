@@ -1,13 +1,12 @@
-import NProgress from 'nprogress'
 import type { Router } from 'vue-router'
 
 export function setupNprogress(router: Router) {
   router.beforeEach((to, from) => {
     if (to.path !== from.path)
-      NProgress.start()
+      window.$loadingBar?.start()
   })
 
   router.afterEach(() => {
-    NProgress.done()
+    window.$loadingBar?.finish()
   })
 }
