@@ -1,3 +1,23 @@
 {
-  "recommendations": ["Vue.volar", "Vue.vscode-typescript-vue-plugin"]
+  "recommendations": [
+    // my extensions, ofc :P
+    "antfu.iconify",
+    "antfu.unocss",
+    "antfu.vite",
+    "lokalise.i18n-ally",
+
+    // themes & icons
+    "antfu.theme-vitesse",
+    "file-icons.file-icons",
+    "sainnhe.gruvbox-material",
+
+    // life savers!
+    "dbaeumer.vscode-eslint",
+    "Vue.volar",
+    "GitHub.copilot",
+    "usernamehw.errorlens",
+    "streetsidesoftware.code-spell-checker"
+
+    // up to you
+  ]
 }
