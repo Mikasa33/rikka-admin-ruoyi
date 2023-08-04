@@ -30,6 +30,7 @@
   "editor.unicodeHighlight.invisibleCharacters": false,
   "editor.stickyScroll.enabled": true,
   "editor.hover.sticky": true,
+  "editor.formatOnSave": false, // 这条很关键
   "editor.codeActionsOnSave": {
     "source.fixAll": false,
     "source.fixAll.eslint": true, // this allows ESLint to auto fix on save
