@@ -16,9 +16,11 @@ import UnoCSS from 'unocss/vite'
 // https://vitejs.dev/config
 export default ({ command, mode }: ConfigEnv) => {
   const root = process.cwd()
-  const env = loadEnv(mode, root)
+  const isBuild = command === 'build'
+  const { VITE_PUBLIC_PATH, VITE_USE_MOCK, VITE_PORT } = loadEnv(mode, root)
 
   return defineConfig({
+    base: VITE_PUBLIC_PATH,
     plugins: [
       // https://vuejs.org
       vue(),
@@ -77,8 +79,14 @@ export default ({ command, mode }: ConfigEnv) => {
 
       // https://github.com/vbenjs/vite-plugin-mock
       viteMockServe({
+        ignore: /^_/,
         mockPath: 'mock',
-        enable: env.VITE_USE_MOCK === 'true',
+        localEnabled: !isBuild && VITE_USE_MOCK === 'true',
+        prodEnabled: isBuild && VITE_USE_MOCK === 'true',
+        injectCode: `
+          import { setupProdMockServer } from './plugins/mock';
+          setupProdMockServer();
+        `,
       }),
 
       // https://github.com/antfu/unocss
@@ -90,7 +98,16 @@ export default ({ command, mode }: ConfigEnv) => {
       },
     },
     server: {
-      port: 3333,
+      host: true,
+      port: Number(VITE_PORT),
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8080',
+          changeOrigin: true,
+          ws: true,
+          rewrite: (path: string) => path.replace(/^\/api/, ''),
+        },
+      },
     },
   })
 }
