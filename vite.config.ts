@@ -5,7 +5,6 @@ import process from 'node:process'
 import type { ConfigEnv } from 'vite'
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
@@ -24,39 +23,39 @@ export default ({ command, mode }: ConfigEnv) => {
       // https://vuejs.org
       vue(),
 
-    // https://github.com/antfu/unplugin-auto-import
-    AutoImport({
-      imports: [
-        'vue',
-        'vue-router',
-        'vue-i18n',
-        '@vueuse/core',
-        '@vueuse/head',
-        'pinia',
-        {
-          'naive-ui': [
-            'useDialog',
-            'useMessage',
-            'useNotification',
-            'useLoadingBar',
-          ],
-        },
-      ],
-      dts: 'types/auto-imports.d.ts',
-      dirs: [
-        'src/composables',
-        'src/hooks',
-        'src/stores',
-      ],
-    }),
+      // https://github.com/antfu/unplugin-auto-import
+      AutoImport({
+        imports: [
+          'vue',
+          'vue-router',
+          'vue-i18n',
+          '@vueuse/core',
+          '@vueuse/head',
+          'pinia',
+          {
+            'naive-ui': [
+              'useDialog',
+              'useMessage',
+              'useNotification',
+              'useLoadingBar',
+            ],
+          },
+        ],
+        dts: 'types/auto-imports.d.ts',
+        dirs: [
+          'src/composables',
+          'src/hooks',
+          'src/stores',
+        ],
+      }),
 
-    // https://github.com/antfu/unplugin-vue-components
-    Components({
-      extensions: ['vue', 'md'],
-      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-      dts: 'types/components.d.ts',
-      resolvers: [NaiveUiResolver()],
-    }),
+      // https://github.com/antfu/unplugin-vue-components
+      Components({
+        extensions: ['vue', 'md'],
+        include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+        dts: 'types/components.d.ts',
+        resolvers: [NaiveUiResolver()],
+      }),
 
       // https://github.com/antfu/unplugin-vue-components
       Components({
