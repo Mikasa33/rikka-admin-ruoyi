@@ -1,14 +1,15 @@
 <script setup lang="ts">
+import axios from 'axios'
+
 defineOptions({
   name: '404',
 })
 
 const result = ref()
 
-fetch('/api/demo?query=demo')
-  .then(response => response.json())
-  .then((data) => {
-    result.value = data
+axios('/api/demo?id=demo')
+  .then((res: any) => {
+    result.value = res.data
   })
 </script>
 

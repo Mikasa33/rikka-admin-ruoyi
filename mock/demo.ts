@@ -1,12 +1,17 @@
+import type { MockMethod } from 'vite-plugin-mock'
+
 export default [
   {
     url: '/api/demo',
     method: 'get',
-    response: ({ query }) => {
+    response: ({ query, body }: any) => {
       return {
         code: 0,
-        data: query,
+        data: {
+          query,
+          body,
+        },
       }
     },
   },
-]
+] as MockMethod[]
