@@ -5,8 +5,9 @@ export function useReload() {
 
   async function onReload() {
     toggle(true)
-    await nextTick()
-    toggle(false)
+    setTimeout(() => {
+      toggle(false)
+    }, 10)
   }
 
   return {
