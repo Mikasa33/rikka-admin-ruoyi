@@ -12,7 +12,7 @@ const title = import.meta.env.VITE_APP_TITLE
 const route = useRoute()
 const router = useRouter()
 const themeStore = useThemeStore()
-// const menuStore = useMenuStore()
+const menuStore = useMenuStore()
 const { width } = useWindowSize()
 
 const collapsed = ref(false)
@@ -56,7 +56,6 @@ function handleUpdateMenu(key: string, menu: any) {
   <NLayoutSider
     v-model:collapsed="collapsed"
     show-trigger
-    :inverted="!themeStore.isDark"
     collapse-mode="width"
     :collapsed-width="64"
     :width="220"
@@ -68,7 +67,7 @@ function handleUpdateMenu(key: string, menu: any) {
       @click="handleClickLogo"
     >
       <img
-        src="/logo.svg"
+        :src="`/favicon${themeStore.isDark ? '-dark' : ''}.svg`"
         class="h-32px w-32px"
       >
       <span
@@ -83,12 +82,11 @@ function handleUpdateMenu(key: string, menu: any) {
     >
       <NMenu
         :value="menuValue"
-        :options="[]"
+        :options="menuStore.list"
         :collapsed="collapsed"
         :collapsed-width="64"
         :collapsed-icon-size="18"
         :icon-size="18"
-        :inverted="!themeStore.isDark"
         :indent="20"
         accordion
         @update:value="handleUpdateMenu"

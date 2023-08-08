@@ -10,7 +10,7 @@ const themeStore = useThemeStore()
     @click="themeStore.toggleShow()"
   >
     <template #icon>
-      <div class="i-icon-park-outline-setting-one" />
+      <div class="i-icon-park-outline-platte" />
     </template>
   </NButton>
 </template>

@@ -3,7 +3,7 @@ const route = useRoute()
 const themeStore = useThemeStore()
 
 const breadcrumbs = computed(() => {
-  return route.matched.filter((item: any) => item.path && !item.meta?.hideBreadcrumb)
+  return route.matched.filter((item: any) => item.path && !item.meta?.hideBreadcrumb && !item.name?.includes('/rootMenu'))
 })
 </script>
 
