@@ -1,0 +1,5 @@
+export const V_FORM_MODAL = Symbol('V_FORM_MODAL')
+export const V_FORM_PROPS = Symbol('V_FORM_PROPS')
+export const V_TABLE_CHECKED_ROW_KEYS = Symbol('V_TABLE_CHECKED_ROW_KEYS')
+export const V_TABLE_SET_TABLE_HEIGHT = Symbol('V_TABLE_SET_TABLE_HEIGHT')
+export const V_TABLE_RELOAD = Symbol('V_TABLE_RELOAD')
