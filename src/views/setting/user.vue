@@ -10,13 +10,13 @@ const formRef = ref()
 const schemas = [
   {
     field: 'id',
-    show: false,
+    visible: 'hidden',
   },
   {
     field: 'headImg',
     label: '头像',
     component: 'Upload',
-    componentProps: {
+    props: {
       listType: 'image-card',
       max: 1,
       accept: 'image/*',
@@ -32,7 +32,7 @@ const schemas = [
     field: 'password',
     label: '密码',
     component: 'Input',
-    componentProps: {
+    props: {
       type: 'password',
     },
     rules: ({ model }: any) => model.id ? {} : { required: true, message: '请输入密码', trigger: ['blur', 'input'] },
@@ -78,13 +78,15 @@ onMounted(() => {
             :gi-span="24"
           >
             <template #slot-submit>
-              <NButton
-                :loading="loading"
-                type="primary"
-                @click="handleSave"
-              >
-                保存修改
-              </NButton>
+              <NFormItem label=" ">
+                <NButton
+                  :loading="loading"
+                  type="primary"
+                  @click="handleSave"
+                >
+                  保存修改
+                </NButton>
+              </NFormItem>
             </template>
           </VForm>
         </NGi>
