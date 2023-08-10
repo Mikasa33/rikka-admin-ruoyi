@@ -19,6 +19,7 @@ const emit = defineEmits<{
   <NSpace
     align="center"
     justify="end"
+    class="text-0"
   >
     <VTableToolsStriped @striped="(val: boolean) => emit('striped', val)" />
     <NDivider vertical />

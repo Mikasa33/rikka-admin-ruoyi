@@ -78,7 +78,7 @@ onMounted(() => {
             :gi-span="24"
           >
             <template #slot-submit>
-              <NFormItem label=" ">
+              <NFormItem label=" " :show-feedback="false">
                 <NButton
                   :loading="loading"
                   type="primary"
