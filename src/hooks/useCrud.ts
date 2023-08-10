@@ -1,6 +1,6 @@
 type stateType = 'add' | 'edit' | 'view'
 
-export function useCrud({ title, api, query, pageQuery, listQuery, pageFormat, listFormat, tableRef, editRef, viewRef, modalRef, formRef, formSchemas, onBeforeOpen, onAfterOpen, onBeforeClose, onAfterClose, onGetInfoAfter, emit }: any) {
+export function useCrud({ title, api, query, pageQuery, listQuery, formatPageData, formatListData, tableRef, editRef, viewRef, modalRef, formRef, formSchemas, onBeforeOpen, onAfterOpen, onBeforeClose, onAfterClose, onGetInfoAfter, emit }: any) {
   const message = useMessage()
   const { open, close } = useModal(modalRef)
   const [loading, toggleLoading] = useToggle()
@@ -12,12 +12,12 @@ export function useCrud({ title, api, query, pageQuery, listQuery, pageFormat, l
 
   async function loadPage(params?: any) {
     const result = await api.page({ ...params, ...unref(query), ...unref(pageQuery) })
-    return pageFormat ? listFormat(result) : result
+    return formatPageData ? formatPageData(result) : result
   }
 
   async function loadList(params?: any) {
     const result = await api.list({ ...params, ...unref(query), ...unref(listQuery) })
-    return listFormat ? listFormat(result) : result
+    return formatListData ? formatListData(result) : result
   }
 
   function onAdd(params?: any) {

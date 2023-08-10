@@ -25,7 +25,7 @@ const { loadList, onAdd, onEdit, onRemove, onRefresh } = useCrud({
       ...unref(searchRef)?.getFieldsValue(),
     }
   }),
-  listFormat: (list: any[]) => {
+  formatListData: (list: any[]) => {
     list.forEach((item: any) => {
       item.permList = item.perms ? item.perms.split(',') : []
     })

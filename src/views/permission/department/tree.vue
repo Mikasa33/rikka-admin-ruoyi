@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// import DeptEdit from './DeptEdit.vue'
+import Edit from './edit.vue'
 import { department } from '@/apis/permission/department'
 import { deepTree, revDeepTree } from '@/utils'
 
@@ -11,37 +11,20 @@ const treeRef = ref()
 const editRef = ref()
 
 const selectedKeys = ref<string[] | number[]>([])
-
 const selectedAndChildrenKeys = ref<string[] | number[]>([])
 
-async function load(params: any) {
-  const list = await department.list(params)
-  console.log(list)
-  return deepTree(list.map((item: any) => {
+const { loadList, onAdd, onEdit, onRemove, onRefresh } = useCrud({
+  treeRef,
+  editRef,
+  api: department,
+  formatListData: (list: any[]) => deepTree(list.map((item: any) => {
     item.children = []
     return item
-  }))
-}
-
-async function handleRefresh() {
-  await unref(treeRef).reload()
-}
-
-function handleAdd(record: any) {
-  unref(editRef).open({ record })
-}
-
-function handleEdit(record: any) {
-  unref(editRef).open({ edit: true, record })
-}
+  })),
+})
 
 async function handleDelete(id: number | string) {
-  try {
-    await department.delete({ ids: [id] })
-    message.success('删除成功')
-
-    await handleRefresh()
-
+  onRemove([id] as number[] | string[], () => {
     if (unref(selectedKeys)?.[0] === id) {
       const ids = unref(treeRef).getData()?.[0]?.children ? revDeepTree(unref(treeRef).getData()?.[0]?.children).map(e => e.id) : []
       ids.unshift(unref(treeRef).getData()?.[0]?.id)
@@ -49,10 +32,7 @@ async function handleDelete(id: number | string) {
       selectedAndChildrenKeys.value = ids
       emit('refresh')
     }
-  }
-  catch (err) {
-
-  }
+  })
 }
 
 async function handleDrop(nodes: any[]) {
@@ -101,16 +81,17 @@ defineExpose({
       is-add
       default-expand-all
       permission="permission:department"
-      :load="load"
+      :load="loadList"
       :delete="handleDelete"
-      @add="handleAdd"
-      @edit="handleEdit"
+      @add="onAdd"
+      @edit="onEdit"
       @drop="handleDrop"
       @update:selected-keys="handleUpdateSelectedKeys"
     />
-    <!-- <DeptEdit
+    <Edit
       ref="editRef"
-      @refresh="handleRefresh"
-    /> -->
+      title="部门"
+      @refresh="onRefresh"
+    />
   </div>
 </template>

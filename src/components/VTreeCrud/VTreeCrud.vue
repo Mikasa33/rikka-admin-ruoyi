@@ -120,10 +120,10 @@ function handleSelectDropdown(key: 'add' | 'edit' | 'delete') {
     })
   }
   else if (key === 'edit') {
-    emit('edit', dropdown.data)
+    emit('edit', { info: dropdown.data })
   }
   else {
-    emit('add')
+    emit('add', { info: { parentId: dropdown.data.id } })
   }
 }
 

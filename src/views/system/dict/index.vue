@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import DepartmentTree from '../department/tree.vue'
 import { actionColumn, columns } from './data/table'
 import { searchSchemas } from './data/search'
 import Edit from './edit.vue'
-import { user } from '@/apis/permission/user'
+import DictTypeTree from './tree.vue'
+import { dictInfo } from '@/apis/system/dict'
 
 const searchRef = ref()
 const tableRef = ref()
@@ -13,18 +13,18 @@ const treeRef = ref()
 const tab = reactive({
   value: 0,
   list: [
-    { tab: '用户管理', slot: 'user' },
+    { tab: '字典管理', slot: 'dict' },
   ],
 })
 
 const { loadPage, onAdd, onEdit, onRemove, onRefresh } = useCrud({
   tableRef,
   editRef,
-  api: user,
+  api: dictInfo,
   pageQuery: computed(() => {
     return {
       ...unref(searchRef)?.getFieldsValue(),
-      departmentIds: unref(treeRef)?.getIds(),
+      parentId: unref(treeRef)?.getId(),
     }
   }),
 })
@@ -39,7 +39,7 @@ const { loadPage, onAdd, onEdit, onRemove, onRefresh } = useCrud({
       responsive="screen"
     >
       <NGi span="xs:24 m:8 l:6 xl:4">
-        <DepartmentTree
+        <DictTypeTree
           ref="treeRef"
           @refresh="onRefresh"
         />
@@ -49,7 +49,7 @@ const { loadPage, onAdd, onEdit, onRemove, onRefresh } = useCrud({
           v-model:value="tab.value"
           :tabs="tab.list"
         >
-          <template #user>
+          <template #dict>
             <VTable
               ref="tableRef"
               :load="loadPage"
@@ -62,7 +62,7 @@ const { loadPage, onAdd, onEdit, onRemove, onRefresh } = useCrud({
               </template>
               <template #buttons>
                 <NSpace>
-                  <VTableAddBtn @click="onAdd" />
+                  <VTableAddBtn @click="() => onAdd({ info: { parentId: treeRef?.getId() } })" />
                   <VTableRemoveBtn :fn="onRemove" />
                 </NSpace>
               </template>
@@ -70,7 +70,7 @@ const { loadPage, onAdd, onEdit, onRemove, onRefresh } = useCrud({
 
             <Edit
               ref="editRef"
-              title="用户"
+              title="字典"
               @refresh="onRefresh"
             />
           </template>
