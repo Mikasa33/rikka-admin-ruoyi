@@ -49,7 +49,13 @@ function handleUpdateModelValue(val: DataTableColumn[]) {
     <template #trigger>
       <NTooltip trigger="hover">
         <template #trigger>
-          <div class="i-icon-park-outline-setting-two ml-4px cursor-pointer text-16px transition-base hover:text-[#18a058]" />
+          <NButton
+            text
+            size="large"
+            class="!ml-4px"
+          >
+            <div class="i-icon-park-outline-setting-two" />
+          </NButton>
         </template>
         列设置
       </NTooltip>

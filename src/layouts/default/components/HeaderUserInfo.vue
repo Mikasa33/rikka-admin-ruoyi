@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const router = useRouter()
 const dialog = useDialog()
+const themeStore = useThemeStore()
 const userStore = useUserStore()
 const userInfo = computed(() => userStore.info)
 
@@ -55,6 +56,7 @@ function handleSelect(val: any) {
       >
         <NAvatar
           :src="userInfo?.headImg"
+          :color="themeStore.isDark ? 'rgba(255,255,255,0.08)' : 'rgba(46,51,56,.05)'"
           round
           object-fit="cover"
           :size="40"

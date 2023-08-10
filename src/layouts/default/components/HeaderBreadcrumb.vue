@@ -10,7 +10,7 @@ const breadcrumbs = computed(() => {
 <template>
   <div
     v-show="themeStore.breadcrumbVisible"
-    class="h-40px flex-center rounded-40px bg-[rgba(46,51,56,.05)] px-16px"
+    class="h-40px flex-center rounded-40px bg-[rgba(46,51,56,.05)] dark:bg-[rgba(255,255,255,0.08)] px-16px"
   >
     <NBreadcrumb>
       <NBreadcrumbItem

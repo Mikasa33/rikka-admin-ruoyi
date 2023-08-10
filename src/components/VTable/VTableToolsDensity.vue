@@ -36,7 +36,13 @@ function handleSelectDensity(key: TableDensityType) {
   >
     <NTooltip trigger="hover">
       <template #trigger>
-        <div class="i-icon-park-outline-auto-height-one ml-4px cursor-pointer text-16px transition-base hover:text-[#18a058]" />
+        <NButton
+          text
+          size="large"
+          class="!ml-4px"
+        >
+          <div class="i-icon-park-outline-auto-height-one" />
+        </NButton>
       </template>
       密度
     </NTooltip>
