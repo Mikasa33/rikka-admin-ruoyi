@@ -1,16 +1,16 @@
 <p align='center'>
-  <img src='https://user-images.githubusercontent.com/11247099/154486817-f86b8f20-5463-4122-b6e9-930622e757f2.png' alt='void-vue - Vite Starter Template' width='600'/>
+  <img src='https://user-images.githubusercontent.com/11247099/154486817-f86b8f20-5463-4122-b6e9-930622e757f2.png' alt='rikka-admin - Vite Starter Template' width='600'/>
 </p>
 
 <p align='center'>
-快速地<sup><em>void</em></sup> 创建 Web 应用
+快速地<sup><em>rikka</em></sup> 创建 Web 应用
 <br>
 </p>
 
 <br>
 
 <p align='center'>
-<a href="https://void-vue.mikasa.cc/">在线 Demo</a>
+<a href="https://rikka-admin.mikasa.cc/">在线 Demo</a>
 </p>
 
 <br>
@@ -101,17 +101,17 @@
 
 ## 现在可以试试!
 
-> void-template-vue 需要 Node 版本 >=14.18
+> rikka-template-vue 需要 Node 版本 >=14.18
 
 ### GitHub 模板
 
-[使用这个模板创建仓库](https://github.com/Mikasa33/void-vue/generate).
+[使用这个模板创建仓库](https://github.com/Mikasa33/rikka-admin/generate).
 
 ### 克隆到本地
 
 ```bash
-git clone https://github.com/Mikasa33/void-vue my-void-app
-cd my-void-app
+git clone https://github.com/Mikasa33/rikka-admin my-rikka-app
+cd my-rikka-app
 pnpm i # 如果你没装过 pnpm, 可以先运行: npm install -g pnpm
 ```
 
