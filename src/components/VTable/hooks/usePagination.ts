@@ -28,9 +28,14 @@ export function usePagination(props: TableProps, load: () => void) {
     [vTableSetting.pageSizeField]: (unref(mergePagination) as PaginationProps)?.pageSize,
   }))
 
+  function getPagination() {
+    return unref(paginationParams)
+  }
+
   return {
     defaultPagination,
     mergePagination,
     paginationParams,
+    getPagination,
   }
 }

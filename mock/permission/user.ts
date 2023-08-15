@@ -12,7 +12,7 @@ const userInfo = {
 export default [
   {
     url: '/api/permission/user/page',
-    method: 'post',
+    method: 'get',
     response: ({ query, body }: any) => {
       return {
         code: 0,

@@ -13,11 +13,19 @@ const [loading, toggleLoading] = useToggle()
 
 const options = ref<SelectOption[]>([])
 
+watch(
+  () => props.options,
+  (val: SelectOption[]) => {
+    options.value = val
+  },
+  {
+    immediate: true,
+  },
+)
+
 async function load() {
-  if (!props.load) {
-    options.value = props.options
+  if (!props.load)
     return
-  }
 
   try {
     toggleLoading(true)

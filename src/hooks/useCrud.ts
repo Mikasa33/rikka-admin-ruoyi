@@ -1,6 +1,6 @@
-type stateType = 'add' | 'edit' | 'view'
+type stateType = 'add' | 'edit' | 'view' | 'custom'
 
-export function useCrud({ title, api, query, pageQuery, listQuery, formatPageData, formatListData, tableRef, editRef, viewRef, modalRef, formRef, formSchemas, onBeforeOpen, onAfterOpen, onBeforeClose, onAfterClose, onGetInfoAfter, emit }: any) {
+export function useCrud({ idKey = 'id', title, api, query, pageQuery, listQuery, exportQuery, formatPageData, formatListData, tableRef, editRef, viewRef, modalRef, formRef, formSchemas, onBeforeOpen, onAfterOpen, onBeforeClose, onAfterClose, onGetInfoAfter, emit }: any) {
   const message = useMessage()
   const { open, close } = useModal(modalRef)
   const [loading, toggleLoading] = useToggle()

@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<TableProps>(), {
 const tableRef = ref()
 const { height: tableHeight } = useHeight(tableRef)
 const { defaultColumns, filterColumns, handleResetColumns } = useColumn(props)
-const { defaultPagination, mergePagination, paginationParams } = usePagination(props, load)
+const { defaultPagination, mergePagination, paginationParams, getPagination } = usePagination(props, load)
 const { sort, handleUpdateSorter } = useSort(defaultColumns, reload)
 const { checkedRowKeys, getCheckedRowKeys, setCheckedRowKeys } = useCheckedRow()
 const { striped, size, handleStriped, handleDensity } = useTableTools(props)
@@ -73,6 +73,7 @@ defineExpose({
   getData,
   getCheckedRowKeys,
   setCheckedRowKeys,
+  getPagination,
   load,
   reload,
 })

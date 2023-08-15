@@ -41,7 +41,7 @@ const dictList = [
 export default [
   {
     url: '/api/system/dict/type/page',
-    method: 'post',
+    method: 'get',
     response: ({ query, body }: any) => {
       return {
         code: 0,
@@ -57,7 +57,7 @@ export default [
   },
   {
     url: '/api/system/dict/type/list',
-    method: 'post',
+    method: 'get',
     response: ({ query, body }: any) => {
       return {
         code: 0,
@@ -114,13 +114,13 @@ export default [
   },
   {
     url: '/api/system/dict/info/page',
-    method: 'post',
+    method: 'get',
     response: ({ query, body }: any) => {
       return {
         code: 0,
         message: 'success',
         data: {
-          list: dictList.filter((item: any) => item.parentId === body.parentId),
+          list: dictList.filter((item: any) => item.parentId === Number(query.parentId)),
           pagination: {
             total: 2,
           },
@@ -130,12 +130,12 @@ export default [
   },
   {
     url: '/api/system/dict/info/list',
-    method: 'post',
+    method: 'get',
     response: ({ query, body }: any) => {
       return {
         code: 0,
         message: 'success',
-        data: dictList.filter((item: any) => item.parentId === body.parentId),
+        data: dictList.filter((item: any) => item.parentId === Number(query.parentId)),
       }
     },
   },

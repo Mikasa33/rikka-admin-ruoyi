@@ -1,9 +1,12 @@
 import { crud } from '@/plugins/axios'
 
+const typeNamespace = '/system/dict/type'
+const infoNamespace = '/system/dict/info'
+
 export const dictType = {
-  ...crud({ namespace: '/system/dict/type' }),
+  ...crud({ namespace: typeNamespace }),
 }
 
 export const dictInfo = {
-  ...crud({ namespace: '/system/dict/info' }),
+  ...crud({ namespace: infoNamespace }),
 }

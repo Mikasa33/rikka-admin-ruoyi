@@ -10,6 +10,7 @@ const emit = defineEmits<{
       <NButton
         text
         size="large"
+        @click="() => emit('refresh')"
       >
         <div class="i-icon-park-outline-refresh" />
       </NButton>

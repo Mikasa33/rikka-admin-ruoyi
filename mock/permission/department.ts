@@ -26,7 +26,7 @@ const departmentList = [
 export default [
   {
     url: '/api/permission/department/list',
-    method: 'post',
+    method: 'get',
     response: ({ query, body }: any) => {
       return {
         code: 0,

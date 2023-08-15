@@ -77,7 +77,7 @@ const menuList = [
 export default [
   {
     url: '/api/permission/menu/list',
-    method: 'post',
+    method: 'get',
     response: ({ query, body }: any) => {
       return {
         code: 0,

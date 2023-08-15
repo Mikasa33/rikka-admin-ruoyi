@@ -21,7 +21,7 @@ export const useMenuStore = defineStore('menu', () => {
 
   function setPermissions(list: any[]) {
     permissions.value = list
-    storage.set('permissions', list)
+    // storage.set('permissions', list)
   }
 
   function transformObjToMenu(routes: any[]) {
@@ -55,13 +55,16 @@ export const useMenuStore = defineStore('menu', () => {
 
     const routerList = []
     for (let i = 0; i < routes.length; i++) {
-      let { parentId, title, menuType, icon, layout, component, router, children } = routes[i]
-      const layoutComp = layouts[`/src${layout}`] || DefaultLayout
-      const comp = views[`/src${component}`]
+      let { parentId, title, menuType, icon, isFrame, layout, component, router, children } = routes[i]
+      const layoutComp = layouts[`/src/layouts${layout}`] || DefaultLayout
+      const comp = views[`/src/views${component}`]
 
-      const meta = { title, icon }
+      const meta = { title, icon, isFrame }
 
       children = children?.length ? transformObjToRoute(children) : []
+
+      if (isFrame)
+        continue
 
       if (menuType === 'catalog') {
         routerList.push({
@@ -108,7 +111,7 @@ export const useMenuStore = defineStore('menu', () => {
   async function getRoutes() {
     const { message } = useDiscreteApi()
     const msg = message.loading('加载菜单中...', {
-      duration: 0,
+      duration: 5000,
     })
 
     const { menus, perms } = await listPermmenu()

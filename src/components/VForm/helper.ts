@@ -1,31 +1,31 @@
 import { isUndefined } from 'lodash-es'
 import { components, layoutComponents, nestComponents, selectComponent } from './components'
-import type { ComponentType, FormComponentType, LayoutComponentType, NestComponentType, visibleType } from './types'
+import type { IComponentType, IFormComponentType, ILayoutComponentType, INestComponentType, IVisibleType } from './types'
 
-export function isLayoutComponent(component: ComponentType | undefined) {
+export function isLayoutComponent(component: IComponentType | undefined) {
   if (!component)
     return false
-  return layoutComponents.has(component as LayoutComponentType)
+  return layoutComponents.has(component as ILayoutComponentType)
 }
 
-export function isNestComponentType(component: ComponentType | undefined) {
+export function isNestComponentType(component: IComponentType | undefined) {
   if (!component)
     return false
-  return nestComponents.has(component as NestComponentType)
+  return nestComponents.has(component as INestComponentType)
 }
 
-export function isSelectComponent(component: ComponentType | undefined) {
+export function isSelectComponent(component: IComponentType | undefined) {
   if (!component)
     return false
-  return selectComponent.has(component as FormComponentType)
+  return selectComponent.has(component as IFormComponentType)
 }
 
-export function getComponent(component: ComponentType | undefined) {
+export function getComponent(component: IComponentType | undefined) {
   if (!component)
     return
   return components.get(component)
 }
 
-export function isVisible(visible: visibleType | undefined) {
+export function isVisible(visible: IVisibleType | undefined) {
   return isUndefined(visible) || visible === 'visible'
 }

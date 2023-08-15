@@ -110,6 +110,7 @@ request.interceptors.response.use((res: any) => {
     const { status } = error.response
 
     if (status === 401) {
+      showMessage('登录过期，请重新登录', 'error')
       userStore.logout()
     }
     else {
@@ -150,10 +151,14 @@ export function del(url: string, config?: axiosRequestConfigPro): any {
   return request(url, { ...config, method: 'DELETE' })
 }
 
+export function download(url: string, config?: axiosRequestConfigPro): any {
+  return request(url, { ...config, responseType: 'blob', method: 'POST' })
+}
+
 export function crud({ namespace }: { namespace: string }) {
   return {
-    page: (data?: any) => post(`${namespace}/page`, { data }),
-    list: (data?: any) => post(`${namespace}/list`, { data }),
+    page: (data?: any) => get(`${namespace}/page`, { params: data }),
+    list: (data?: any) => get(`${namespace}/list`, { params: data }),
     info: (data: any) => get(`${namespace}/info`, { params: data }),
     add: (data: any) => post(`${namespace}/add`, { data, showMessage: true }),
     update: (data: any) => put(`${namespace}/update`, { data, showMessage: true }),

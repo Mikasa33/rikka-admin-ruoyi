@@ -21,7 +21,7 @@ const roleList = [
 export default [
   {
     url: '/api/permission/role/page',
-    method: 'post',
+    method: 'get',
     response: ({ query, body }: any) => {
       return {
         code: 0,
@@ -37,7 +37,7 @@ export default [
   },
   {
     url: '/api/permission/role/list',
-    method: 'post',
+    method: 'get',
     response: ({ query, body }: any) => {
       return {
         code: 0,

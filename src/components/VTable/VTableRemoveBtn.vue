@@ -34,7 +34,7 @@ function handleClick() {
 <template>
   <NButton
     type="error"
-    tertiary
+    secondary
     :disabled="!checkedRowKey?.length"
     @click="handleClick"
   >

@@ -32,7 +32,7 @@ function init(scs: any[]) {
       levelSchemas.value.push(schema)
 
       if (schema.field)
-        model.value[schema.field] = schema.defaultValue ?? (schema.component === 'NDynamicTags' ? [] : null)
+        model.value[schema.field] = schema.defaultValue ?? (schema.component === 'DynamicTags' ? [] : null)
       if (schema.items)
         loopSchemas(schema.items)
     })
