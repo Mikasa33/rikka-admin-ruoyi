@@ -101,7 +101,11 @@
 
 ## 现在可以试试!
 
+<<<<<<< HEAD
 > rikka-admin 需要 Node 版本 >=14.18
+=======
+> rikka-vue 需要 Node 版本 >=14.18
+>>>>>>> template/main
 
 ### GitHub 模板
 
