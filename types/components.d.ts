@@ -123,6 +123,7 @@ declare module 'vue' {
     VTableColumnAddBtn: typeof import('./../src/components/VTable/VTableColumnAddBtn.vue')['default']
     VTableColumnEditBtn: typeof import('./../src/components/VTable/VTableColumnEditBtn.vue')['default']
     VTableColumnRemoveBtn: typeof import('./../src/components/VTable/VTableColumnRemoveBtn.vue')['default']
+    VTableExportBtn: typeof import('./../src/components/VTable/VTableExportBtn.vue')['default']
     VTableRemoveBtn: typeof import('./../src/components/VTable/VTableRemoveBtn.vue')['default']
     VTableSearch: typeof import('./../src/components/VTable/VTableSearch.vue')['default']
     VTableTools: typeof import('./../src/components/VTable/VTableTools.vue')['default']
