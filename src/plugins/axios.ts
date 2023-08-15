@@ -24,6 +24,12 @@ function isShowMessage(config: axiosRequestConfigPro, msg: string, type?: 'info'
     showMessage(msg, type)
 }
 
+function logout() {
+  const userStore = useUserStore()
+  showMessage('登录过期，请重新登录', 'error')
+  userStore.logout()
+}
+
 const request = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   timeout: 30000,
@@ -99,19 +105,20 @@ request.interceptors.response.use((res: any) => {
   switch (code) {
     case apiSetting.successCode:
       return data
+    case 401:
+      logout()
+      return
     default:
       isShowMessage(res.config, message)
       return Promise.reject(new Error(message))
   }
 }, (error) => {
   if (error.response) {
-    const userStore = useUserStore()
-
     const { status } = error.response
 
     if (status === 401) {
-      showMessage('登录过期，请重新登录', 'error')
-      userStore.logout()
+      logout()
+      return
     }
     else {
       switch (status) {
