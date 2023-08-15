@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "rikka-admin",
+=======
+  "name": "rikka-vue",
+>>>>>>> template/main
   "version": "1.0.0",
   "private": true,
   "scripts": {
