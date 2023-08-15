@@ -6,6 +6,9 @@ export function usePermission() {
    * @param accesses
    */
   function _somePermissions(accesses: string[]) {
+    if (menuStore.permissions.includes('*:*:*'))
+      return true
+
     return menuStore.permissions.some((item) => {
       return accesses.includes(item)
     })

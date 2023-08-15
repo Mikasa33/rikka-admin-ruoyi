@@ -1,9 +1,17 @@
 <script setup lang="ts">
+import { getCaptcha } from '@/apis/open'
+
 const themeStore = useThemeStore()
 const userStore = useUserStore()
 const [isLoading, toggle] = useToggle()
 
 const title = import.meta.env.VITE_APP_TITLE
+
+const captcha = ref({
+  enable: false,
+  img: '',
+  uuid: null,
+})
 
 const formRef = ref()
 
@@ -14,7 +22,9 @@ const formRules = {
 
 const form = ref({
   username: 'admin',
-  password: '123456',
+  password: 'admin123',
+  code: '',
+  uuid: computed(() => unref(captcha).uuid),
 })
 
 async function handleLogin() {
@@ -24,12 +34,24 @@ async function handleLogin() {
     await userStore.login(unref(form))
   }
   catch (error) {
-
+    handleRefreshCaptcha()
   }
   finally {
     toggle()
   }
 }
+
+async function handleRefreshCaptcha() {
+  const result = await getCaptcha()
+  captcha.value = {
+    ...result,
+    img: `data:image/gif;base64,${result.img}`,
+  }
+}
+
+onMounted(() => {
+  handleRefreshCaptcha()
+})
 </script>
 
 <template>
@@ -98,6 +120,25 @@ async function handleLogin() {
                 </template>
               </NInput>
             </NFormItem>
+            <NFormItem path="code">
+              <NInput
+                v-model:value="form.code"
+                placeholder="请输入验证码"
+                size="large"
+                class="captcha"
+              >
+                <template #prefix>
+                  <div class="i-icon-park-outline-fingerprint mr-4px" />
+                </template>
+                <template #suffix>
+                  <img
+                    :src="captcha.img"
+                    class="h-40px cursor-pointer"
+                    @click="handleRefreshCaptcha"
+                  >
+                </template>
+              </NInput>
+            </NFormItem>
             <NButton
               :loading="isLoading"
               type="primary"
@@ -113,3 +154,11 @@ async function handleLogin() {
     </NGrid>
   </div>
 </template>
+
+<style lang="less" scoped>
+:deep(.captcha) {
+  .n-input-wrapper {
+    padding-right: 0;
+  }
+}
+</style>

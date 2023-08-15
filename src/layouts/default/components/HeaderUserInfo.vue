@@ -55,7 +55,7 @@ function handleSelect(val: any) {
         size="large"
       >
         <NAvatar
-          :src="userInfo?.headImg || `/favicon${themeStore.isDark ? '-dark' : ''}.svg`"
+          :src="userInfo?.avatar || `/favicon${themeStore.isDark ? '-dark' : ''}.svg`"
           :color="themeStore.isDark ? 'rgba(255,255,255,0.08)' : 'rgba(46,51,56,.05)'"
           round
           object-fit="cover"

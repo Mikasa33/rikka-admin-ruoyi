@@ -1,6 +1,6 @@
 export const vTableSetting = {
-  listField: 'list',
-  pageNumField: 'page',
-  pageSizeField: 'size',
-  pageTotalField: 'pagination.total',
+  listField: 'rows',
+  pageNumField: 'pageNum',
+  pageSizeField: 'pageSize',
+  pageTotalField: 'total',
 }

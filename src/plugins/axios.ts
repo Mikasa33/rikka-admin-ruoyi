@@ -163,6 +163,7 @@ export function crud({ namespace }: { namespace: string }) {
     add: (data: any) => post(`${namespace}/add`, { data, showMessage: true }),
     update: (data: any) => put(`${namespace}/update`, { data, showMessage: true }),
     delete: (data: any) => del(`${namespace}/delete`, { data, showMessage: true }),
+    export: (data: any) => download(`${namespace}/export`, { data, showMessage: true }),
   }
 }
 

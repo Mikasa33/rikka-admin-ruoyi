@@ -1,12 +1,13 @@
-import { crud } from '@/plugins/axios'
+import { crud, del } from '@/plugins/axios'
 
 const typeNamespace = '/system/dict/type'
-const infoNamespace = '/system/dict/info'
+const dataNamespace = '/system/dict/data'
 
 export const dictType = {
   ...crud({ namespace: typeNamespace }),
+  refreshCache: () => del(`${typeNamespace}/refreshCache`),
 }
 
-export const dictInfo = {
-  ...crud({ namespace: infoNamespace }),
+export const dictData = {
+  ...crud({ namespace: dataNamespace }),
 }

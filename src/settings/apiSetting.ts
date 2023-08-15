@@ -1,6 +1,6 @@
 export const apiSetting = {
   codeField: 'code',
-  messageField: 'message',
+  messageField: 'msg',
   dataField: 'data',
-  successCode: 0,
+  successCode: 200,
 }

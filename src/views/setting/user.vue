@@ -13,7 +13,7 @@ const schemas = [
     visible: 'hidden',
   },
   {
-    field: 'headImg',
+    field: 'avatar',
     label: '头像',
     component: 'Upload',
     props: {

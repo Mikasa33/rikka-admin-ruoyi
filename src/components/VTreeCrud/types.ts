@@ -7,5 +7,6 @@ export interface TreeCurdProps {
   isAdd?: boolean
   isUpdate?: boolean
   isDelete?: boolean
+  isExport?: boolean
   permission?: string
 }

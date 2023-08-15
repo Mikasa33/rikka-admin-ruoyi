@@ -1,7 +1,7 @@
 import { get, post } from '@/plugins/axios'
 
 export function getPerson() {
-  return get('/comm/person')
+  return get('/getInfo')
 }
 
 export function updatePerson(data: any) {
@@ -9,7 +9,7 @@ export function updatePerson(data: any) {
 }
 
 export function listPermmenu() {
-  return get('/comm/permmenu')
+  return get('/getRouters')
 }
 
 export function getUploadMode() {

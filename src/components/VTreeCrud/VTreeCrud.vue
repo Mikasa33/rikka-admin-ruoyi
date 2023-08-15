@@ -9,12 +9,14 @@ const props = withDefaults(defineProps<TreeCurdProps>(), {
   isAdd: false,
   isUpdate: true,
   isDelete: true,
+  isExport: false,
 })
 
 const emit = defineEmits<{
   (evt: 'update:selected-keys', value: string[] | number[], option: Array<TreeOption | null>): void
   (evt: 'add', value?: any): void
   (evt: 'edit', value: any): void
+  (evt: 'export'): void
   (evt: 'drop', value: any): void
 }>()
 
@@ -223,6 +225,20 @@ defineExpose({
           {{ title }}
         </div>
         <div class="flex">
+          <NTooltip
+            v-if="isExport && permission && hasPermission([`${permission}:export`])"
+            trigger="hover"
+          >
+            <template #trigger>
+              <div
+                class="mr-10px h-24px w-24px flex-center cursor-pointer rounded-3px text-15px transition-base hover:bg-[rgba(0,0,0,0.09)]"
+                @click="emit('export')"
+              >
+                <div class="i-icon-park-outline-download" />
+              </div>
+            </template>
+            导出
+          </NTooltip>
           <NTooltip trigger="hover">
             <template #trigger>
               <div

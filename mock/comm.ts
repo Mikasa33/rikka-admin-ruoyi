@@ -13,7 +13,7 @@ export default [
           username: 'admin',
           name: '超级管理员',
           nickName: '管理员',
-          headImg: 'https://show.cool-admin.com/api/public/uploads/20230308/c731b0cba84046268b10edbbcf36f948_315c243a448e1369fa145c5ea3f020da.gif',
+          avatar: 'https://show.cool-admin.com/api/public/uploads/20230308/c731b0cba84046268b10edbbcf36f948_315c243a448e1369fa145c5ea3f020da.gif',
         },
       }
     },

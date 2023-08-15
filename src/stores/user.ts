@@ -20,7 +20,7 @@ export const useUserStore = defineStore('user', () => {
   function setToken(data: loginData) {
     token.value = data.token
     storage.set('token', data.token, data.expire)
-    storage.set('refreshToken', data.refreshToken, data.refreshExpire)
+    // storage.set('refreshToken', data.refreshToken, data.refreshExpire)
   }
 
   async function refreshToken(): Promise<string> {

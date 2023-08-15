@@ -12,3 +12,9 @@ interface dictType {
   label: any
   type?: TagType
 }
+
+interface dictFields {
+  labelField?: string
+  valueField?: string
+  typeField?: string
+}
