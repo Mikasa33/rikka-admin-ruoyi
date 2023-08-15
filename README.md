@@ -101,7 +101,7 @@
 
 ## 现在可以试试!
 
-> rikka-template-vue 需要 Node 版本 >=14.18
+> rikka-vue 需要 Node 版本 >=14.18
 
 ### GitHub 模板
 
