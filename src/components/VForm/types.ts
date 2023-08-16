@@ -1,7 +1,7 @@
 import type { FormItemProps, FormProps, GridItemProps, GridProps } from 'naive-ui'
 
 export type IComponentType = IFormComponentType | ILayoutComponentType
-export type IFormComponentType = 'Cascader' | 'Checkbox' | 'DynamicTags' | 'EditorWang' | 'IconSelect' | 'Input' | 'InputNumber' | 'Radio' | 'Select' | 'Switch' | 'Tree' | 'TreeSelect' | 'Upload'
+export type IFormComponentType = 'AutoComplete' | 'Cascader' | 'Checkbox' | 'ColorPicker' | 'DatePicker' | 'DynamicTags' | 'EditorWang' | 'IconSelect' | 'Input' | 'InputNumber' | 'Radio' | 'Select' | 'Slider' | 'Switch' | 'TimePicker' | 'Tree' | 'TreeSelect' | 'Upload'
 export type INestComponentType = 'Collapse' | 'Tabs'
 export type ILayoutComponentType = 'Card' | 'Divider' | 'FormItem' | INestComponentType
 
@@ -17,8 +17,13 @@ export interface ICallbackParams {
   field: string
 }
 
+interface FormProProps extends FormProps {
+  readonly?: boolean
+  class?: any
+}
+
 export interface IFormProps {
-  formProps?: FormProps
+  formProps?: FormProProps
   gridProps?: GridProps
   schemas?: IFormSchemaProps[]
 }
