@@ -18,6 +18,7 @@ const formRef = ref()
 const formRules = {
   username: { required: true, message: '请输入用户名', trigger: ['input'] },
   password: { required: true, message: '请输入密码', trigger: ['input'] },
+  code: { required: true, message: '请输入验证码', trigger: ['input'] },
 }
 
 const form = ref({
