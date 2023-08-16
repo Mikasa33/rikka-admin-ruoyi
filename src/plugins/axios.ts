@@ -26,7 +26,8 @@ function isShowMessage(config: axiosRequestConfigPro, msg: string, type?: 'info'
 
 function logout() {
   const userStore = useUserStore()
-  showMessage('登录过期，请重新登录', 'error')
+  const { message } = useDiscreteApi()
+  message.error('登录过期，请重新登录')
   userStore.logout()
 }
 
