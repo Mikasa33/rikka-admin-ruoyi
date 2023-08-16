@@ -1,4 +1,4 @@
-import { NCard, NDivider, NDynamicTags, NFormItem, NInput, NInputNumber, NSwitch } from 'naive-ui'
+import { NAutoComplete, NCard, NColorPicker, NDatePicker, NDivider, NDynamicTags, NFormItem, NInput, NInputNumber, NSlider, NSwitch, NTimePicker } from 'naive-ui'
 import type { IComponentType, IFormComponentType, ILayoutComponentType, INestComponentType } from './types'
 import VFormCascader from './VFormCascader.vue'
 import VFormCollapse from './VFormCollapse.vue'
@@ -20,14 +20,19 @@ export const selectComponent = new Map<IFormComponentType, Component>([
 ])
 
 export const formComponents = new Map<IFormComponentType, Component>([
+  ['AutoComplete', NAutoComplete],
   ['Checkbox', VFormCheckbox],
+  ['ColorPicker', NColorPicker],
+  ['DatePicker', NDatePicker],
   ['DynamicTags', NDynamicTags],
   ['EditorWang', VFormEditorWang],
   ['IconSelect', VFormIconSelect],
   ['Input', NInput],
   ['InputNumber', NInputNumber],
   ['Radio', VFormRadio],
+  ['Slider', NSlider],
   ['Switch', NSwitch],
+  ['TimePicker', NTimePicker],
   ['Upload', VFormUpload],
   ...selectComponent,
 ])

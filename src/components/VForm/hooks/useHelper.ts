@@ -23,6 +23,7 @@ export function useHelper(model: any) {
       props = {}
 
     const { placeholder } = props
+
     if (!placeholder) {
       props.placeholder = `请输入${label ?? ''}`
 

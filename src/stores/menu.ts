@@ -111,20 +111,25 @@ export const useMenuStore = defineStore('menu', () => {
   async function getRoutes() {
     const { message } = useDiscreteApi()
     const msg = message.loading('加载菜单中...', {
-      duration: 5000,
+      duration: 0,
     })
 
-    const { menus, perms } = await listPermmenu()
+    try {
+      const { menus, perms } = await listPermmenu()
 
-    setPermissions(perms || [])
+      setPermissions(perms || [])
 
-    list.value = transformObjToMenu(menus.filter((menu: any) => menu.type !== 'permission'))
+      list.value = transformObjToMenu(menus.filter((menu: any) => menu.type !== 'permission'))
 
-    const routes = transformObjToRoute(unref(list))
+      const routes = transformObjToRoute(unref(list))
 
-    msg.destroy()
-
-    return routes
+      return routes
+    }
+    catch (err) {
+    }
+    finally {
+      msg.destroy()
+    }
   }
 
   return {

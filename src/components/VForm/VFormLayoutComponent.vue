@@ -16,6 +16,7 @@ const { getProps, getSlots } = useHelper(model)
   <Component
     :is="getComponent(component)"
     v-bind="getProps(props)"
+    :placeholder="formProps.readonly ? '' : getProps(props)?.placeholder"
     :items="items"
   >
     <template

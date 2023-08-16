@@ -15,7 +15,9 @@ const { getProp } = useHelper(model)
 
 const defaultFormProps = computed(() => ({
   labelWidth: props.formProps?.inline ? 'auto' : 80,
+  disabled: props.formProps?.readonly,
   ...props.formProps,
+  class: [props.formProps?.class, props.formProps?.readonly ? 'form-readonly' : ''],
 }))
 
 provide(V_FORM_MODAL, model)
@@ -143,3 +145,133 @@ defineExpose({
     </VFormGridContent>
   </NForm>
 </template>
+
+<style lang="less" scoped>
+.form-readonly {
+  :deep(.n-input) {
+    &.n-input--disabled {
+      cursor: default;
+
+      .n-input__input-el,
+      .n-input__textarea-el {
+        color: var(--n-text-color);
+        cursor: default;
+      }
+    }
+  }
+
+  :deep(.n-input-number) {
+    .n-input__suffix {
+      display: none;
+    }
+  }
+
+  :deep(.n-select),
+  :deep(.n-tree-select),
+  :deep(.n-cascader) {
+    .n-base-selection--disabled {
+      cursor: default;
+
+      .n-base-selection-label  {
+        cursor: default;
+
+        .n-base-selection-input {
+          color: var(--n-text-color);
+          cursor: default;
+        }
+      }
+
+      .n-base-suffix {
+        display: none;
+      }
+    }
+  }
+
+  :deep(.n-dynamic-tags) {
+    .n-tag--disabled {
+      cursor: default !important;
+      opacity: 1;
+    }
+
+    .n-base-close--disabled {
+      display: none;
+    }
+
+    .n-button--disabled {
+      display: none;
+    }
+  }
+
+  :deep(.n-date-picker),
+  :deep(.n-time-picker) {
+    .n-input--disabled {
+      .n-input__suffix {
+        display: none;
+      }
+    }
+  }
+
+  :deep(.n-switch) {
+    &.n-switch--disabled {
+      .n-switch__rail {
+        opacity: 1;
+      }
+    }
+  }
+
+  :deep(.n-checkbox-group) {
+    .n-checkbox--disabled {
+      &.n-checkbox--checked {
+        .n-checkbox-box {
+          background-color: var(--n-color-checked);
+
+          .check-icon {
+            fill: var(--n-check-mark-color);
+          }
+
+          .n-checkbox-box__border {
+            border: var(--n-border-checked);
+          }
+        }
+      }
+
+      .n-checkbox__label {
+        color: var(--n-text-color);
+      }
+    }
+
+    .n-checkbox-button--disabled {
+      opacity: 1;
+    }
+  }
+
+  :deep(.n-radio-group) {
+    .n-radio--disabled {
+      .n-radio__dot {
+        &.n-radio__dot--checked {
+          background-color: var(--n-color-active);
+          box-shadow: var(--n-box-shadow-active);
+        }
+
+        &::before {
+          background-color: var(--n-dot-color-active);;
+        }
+      }
+
+      .n-radio__label {
+        color: var(--n-text-color);
+      }
+    }
+
+    .n-radio-button--disabled {
+      opacity: 1;
+    }
+  }
+
+  :deep(.n-slider) {
+    &.n-slider--disabled {
+      opacity: 1;
+    }
+  }
+}
+</style>
