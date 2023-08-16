@@ -125,7 +125,7 @@ onMounted(() => {
                 v-model:value="form.code"
                 placeholder="请输入验证码"
                 size="large"
-                class="captcha"
+                class="captcha overflow-hidden"
               >
                 <template #prefix>
                   <div class="i-icon-park-outline-fingerprint mr-4px" />
