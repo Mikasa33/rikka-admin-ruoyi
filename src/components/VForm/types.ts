@@ -1,7 +1,9 @@
 import type { FormItemProps, FormProps, GridItemProps, GridProps } from 'naive-ui'
 
 export type IComponentType = IFormComponentType | ILayoutComponentType
-export type IFormComponentType = 'AutoComplete' | 'Cascader' | 'Checkbox' | 'ColorPicker' | 'DatePicker' | 'DynamicTags' | 'EditorWang' | 'IconSelect' | 'Input' | 'InputNumber' | 'Radio' | 'Select' | 'Slider' | 'Switch' | 'TimePicker' | 'Tree' | 'TreeSelect' | 'Upload'
+export type IFormComponentType = 'AutoComplete' | 'Cascader' | 'Checkbox' | 'ColorPicker' | 'DatePicker' |
+'DynamicTags' | 'EditorWang' | 'IconSelect' | 'Input' | 'InputNumber' | 'Radio' | 'Select' | 'Slider' |
+'Switch' | 'TimePicker' | 'Tree' | 'TreeSelect' | 'UploadImage' | 'UploadFile'
 export type INestComponentType = 'Collapse' | 'Tabs'
 export type ILayoutComponentType = 'Card' | 'Divider' | 'FormItem' | INestComponentType
 
