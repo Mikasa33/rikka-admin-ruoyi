@@ -15,11 +15,9 @@ const schemas = [
   {
     field: 'avatar',
     label: '头像',
-    component: 'Upload',
+    component: 'UploadImage',
     props: {
-      listType: 'image-card',
       max: 1,
-      accept: 'image/*',
     },
   },
   {

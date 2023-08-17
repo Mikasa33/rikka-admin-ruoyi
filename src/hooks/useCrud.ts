@@ -60,11 +60,11 @@ export function useCrud({ idKey = 'id', title, api, query, pageQuery, listQuery,
   }
 
   async function onOpen(params: { modalState?: stateType; id?: number | string; info?: any } | any) {
+    toggleLoading(true)
     await onBeforeOpen?.()
     await open()
     await onAfterOpen?.()
     modalState.value = params.modalState || 'custom'
-    toggleLoading(true)
     await nextTick()
     unref(formRef).init(formSchemas)
     if (params.info)

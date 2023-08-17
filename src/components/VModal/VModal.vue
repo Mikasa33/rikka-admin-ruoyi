@@ -170,9 +170,12 @@ defineExpose({
       </div>
     </template>
     <NScrollbar :style="{ padding: 0, maxHeight: scrollBarMaxHeight }">
-      <div class="px-24px py-20px">
+      <NSpin
+        :show="loading"
+        class="px-24px py-20px"
+      >
         <slot />
-      </div>
+      </NSpin>
     </NScrollbar>
     <template v-if="showAction" #action>
       <NSpace justify="end">

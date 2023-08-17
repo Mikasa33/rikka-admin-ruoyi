@@ -9,7 +9,8 @@ import VFormEditorWang from './VFormEditorWang.vue'
 import VFormRadio from './VFormRadio.vue'
 import VFormTree from './VFormTree.vue'
 import VFormTreeSelect from './VFormTreeSelect.vue'
-import VFormUpload from './VFormUpload.vue'
+import VFormUploadImage from './VFormUploadImage.vue'
+import VFormUploadFile from './VFormUploadFile.vue'
 import VFormIconSelect from './VFormIconSelect.vue'
 
 export const selectComponent = new Map<IFormComponentType, Component>([
@@ -33,7 +34,8 @@ export const formComponents = new Map<IFormComponentType, Component>([
   ['Slider', NSlider],
   ['Switch', NSwitch],
   ['TimePicker', NTimePicker],
-  ['Upload', VFormUpload],
+  ['UploadImage', VFormUploadImage],
+  ['UploadFile', VFormUploadFile],
   ...selectComponent,
 ])
 
