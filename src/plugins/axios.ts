@@ -15,8 +15,8 @@ let queue: Array<(token: string) => void> = []
 let isRefreshing = false
 
 function showMessage(msg: string, type?: 'info' | 'success' | 'warning' | 'error' | 'loading') {
-  const { message } = useDiscreteApi()
-  message[type || 'error'](msg)
+  window.$message?.destroyAll()
+  window.$message?.[type || 'error'](msg)
 }
 
 function isShowMessage(config: axiosRequestConfigPro, msg: string, type?: 'info' | 'success' | 'warning' | 'error' | 'loading') {
@@ -26,9 +26,8 @@ function isShowMessage(config: axiosRequestConfigPro, msg: string, type?: 'info'
 
 function logout() {
   const userStore = useUserStore()
-  const { message } = useDiscreteApi()
-  message.error('登录过期，请重新登录')
   userStore.logout()
+  showMessage('登录过期，请重新登录', 'error')
 }
 
 const request = axios.create({
